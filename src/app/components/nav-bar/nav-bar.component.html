@@ -1,0 +1,21 @@
+<div class="nav-bar-container">
+    <div class="nav-content">
+        <div class="logo-section" (click)="openHome()"> </div>
+
+        <div class="links-section">
+            @if (navItems && navItems.length > 0) {
+                <ul>
+                    @for (item of navItems; track $index) {
+                        <li [ngClass]="{'active-item' : item.active}" (click)="selectNavItem(item)">
+                            {{item.name}}
+                            @if (item.icon) {
+                                <i class="{{item.icon}}"></i>
+                            }
+                        </li>
+                    }
+                </ul>    
+            }
+        </div>
+    
+    </div>
+</div>

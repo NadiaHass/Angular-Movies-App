@@ -1,0 +1,8 @@
+<div (click)="movie.onclick ? movie.onclick() : null" class="movie-card-container">
+    <div [style.background-image]="'url('+ movie.image+')'" class="image-container">
+        <app-rate-chip [rate]="movie.rate" [placeDecimals]="2"/>
+    </div>
+    <p class="name">
+        {{movie.name}}
+    </p>
+</div>

@@ -1,0 +1,15 @@
+@if(config){
+    <div 
+    [style.background-image]="'url('+config.image+')'"
+    class="detail-banner-container">
+        <div class="overlay-section">
+            <p>
+                <span (click)="open('')">MailHereko | </span>
+                <span (click)="open(config.path)">{{config.pageName}}</span>
+            </p>
+            <p class="title">
+                {{config.title}}
+            </p>
+        </div>
+    </div>
+}
