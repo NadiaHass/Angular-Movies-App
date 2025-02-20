@@ -48,12 +48,12 @@ export class HomeComponent implements OnInit {
   }
 
   private fetchAllTrending(){
-    this.genericHttpService.httpGet(Endpoints.TRENDS).subscribe({
+    this.genericHttpService.httpGet<TrendData>(Endpoints.TRENDS).subscribe({
       next: (response : TrendData) => {
         console.log(response);
         this.movies = response.results.map((item : TrendsResult) => {
           return {
-            image : Endpoints.IMAGE_BASE + `/w500/${item.backdrop_path}`,
+            image : Endpoints.IMAGE_BASE + `/w1280/${item.backdrop_path}`,
             name: item.title ?? item.name,
             rate : item.vote_average,
             onclick: () => this.navigateToDetail(item)
@@ -67,7 +67,7 @@ export class HomeComponent implements OnInit {
   }
 
   private fetchAllMovies(){
-    this.genericHttpService.httpGet(Endpoints.MOVIES).subscribe({
+    this.genericHttpService.httpGet<MovieData>(Endpoints.MOVIES).subscribe({
       next: (response : MovieData) => {
         console.log(response);
         this.movies = response.results.map((item : MovieResult) => {
@@ -86,7 +86,7 @@ export class HomeComponent implements OnInit {
   }
 
   private fetchAllTvShows(){
-    this.genericHttpService.httpGet(Endpoints.TV_SHOWS).subscribe({
+    this.genericHttpService.httpGet<TvShowData>(Endpoints.TV_SHOWS).subscribe({
       next: (response : TvShowData) => {
         console.log(response);
         this.movies = response.results.map((item : TvShowResult) => {
